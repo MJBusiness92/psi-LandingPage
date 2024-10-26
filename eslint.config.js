@@ -46,4 +46,12 @@ export default [
       'no-undef': 'off', // Desativa o aviso "no-undef" para `module` e outras variáveis globais do Node
     },
   },
+  {
+    "env": {
+      "es2020": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2020
+    }
+  }
 ]

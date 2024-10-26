@@ -22,6 +22,7 @@ import ambienteSeguroIcon from "./assets/Ambiente-Seguro-icon.png";
 
 const icons = [timeIcon, atendimentoIcon, sigiloIcon, ambienteSeguroIcon];
 
+
 export default function Main() {
   return (
     <div className="relative w-full min-h-screen overflow-x-hidden">
