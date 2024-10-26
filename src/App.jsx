@@ -6,29 +6,45 @@ import "./App.css";
 //import React from 'react';
 import "./index.css";
 
+// Importe todas as imagens que você usa como backgroundImage
+import bg1 from "./assets/bg-1.png";
+import bg2 from "./assets/bg-2.png";
+import specialist3 from "./assets/specialist-3.png";
+import bioExpert from "./assets/bio-expert.png";
+import specialist2 from "./assets/specialist-2.png";
+// import facebookIcon from "./assets/facebook.png";
+// import instagramIcon from "./assets/instagram.png";
+// import tiktokIcon from "./assets/Tiktok.png";
+import timeIcon from "./assets/Time-icon.png";
+import atendimentoIcon from "./assets/Atendimento-icon.png";
+import sigiloIcon from "./assets/Sigilo-icon.png";
+import ambienteSeguroIcon from "./assets/Ambiente-Seguro-icon.png";
+
+const icons = [timeIcon, atendimentoIcon, sigiloIcon, ambienteSeguroIcon];
+
 export default function Main() {
   return (
     <div className="relative w-full min-h-screen overflow-x-hidden">
       {/* Hero Section */}
       <div
-    className="fixed inset-0 w-full min-h-full bg-cover bg-center"
-    style={{ 
-      backgroundImage: "url('/src/assets/bg-1(1).png')",
-      zIndex: -1 
-    }}
-  />
+        className="fixed inset-0 w-full min-h-full bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${bg1})`,
+          zIndex: -1,
+        }}
+      />
 
-<header className="w-full min-h-screen relative">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center">
-      <div className="flex flex-col md:flex-row items-center justify-between w-full gap-8">
-        <div className="w-full md:w-1/2 max-w-2xl">
-          <div className="bg-[#644c34] rounded-2xl p-6 md:p-8 w-full">
-            <div
-              className="w-28 h-28 bg-contain bg-no-repeat mt-2"
-              style={{
-                backgroundImage: "url('/src/assets/nutri-logo.png')",
-              }}
-            />
+      <header className="w-full min-h-screen relative">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center">
+          <div className="flex flex-col md:flex-row items-center justify-between w-full gap-8">
+            <div className="w-full md:w-1/2 max-w-2xl">
+              <div className="bg-[#644c34] rounded-2xl p-6 md:p-8 w-full">
+                <div
+                  className="w-28 h-28 bg-contain bg-no-repeat mt-2"
+                  style={{
+                    backgroundImage: "url('/src/assets/nutri-logo.png')",
+                  }}
+                />
                 <div className="mt-6 space-y-4">
                   <h1 className="text-white font-semibold text-2xl md:text-3xl lg:text-4xl leading-tight">
                     NÃO DESPERDICE MAIS O
@@ -67,7 +83,7 @@ export default function Main() {
                 className="w-full h-[400px] md:h-[600px] lg:h-[700px] bg-contain bg-bottom bg-no-repeat"
                 style={{
                   position: "relative",
-                  backgroundImage: "url('/src/assets/specialist-3.png')",
+                  backgroundImage: `url(${specialist3})`,
                   marginBottom: -200,
                 }}
               />
@@ -78,15 +94,15 @@ export default function Main() {
 
       {/* Services Section */}
       <section className="w-screen relative">
-      <div
-      className="absolute left-0 right-0 w-full min-h-full bg-cover bg-center"
-      style={{
-        backgroundImage: "url('/src/assets/bg-2.png')",
-        marginTop: "-200px",
-        width: "100%",
-        height: "calc(100% + 210px)", // Added to increase height
-      }}
-    />
+        <div
+          className="absolute left-0 right-0 w-full min-h-full bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${bg2})`,
+            marginTop: "-200px",
+            width: "100%",
+            height: "calc(100% + 210px)", // Added to increase height
+          }}
+        />
         <div className="relative px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24">
           {/* Título Principal */}
           <h2 className="text-2 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-white mb-8 sm:mb-12 md:mb-16">
@@ -95,16 +111,11 @@ export default function Main() {
 
           {/* Icons Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-[280px] sm:max-w-2xl md:max-w-4xl lg:max-w-6xl mx-auto mb-12 sm:mb-16 md:mb-20">
-            {[
-              "Time-icon.png",
-              "Atendimento-icon.png",
-              "Sigilo-icon.png",
-              "Ambiente-Seguro-icon.png",
-            ].map((icon, index) => (
+            {icons.map((icon, index) => (
               <div key={index} className="flex justify-center">
                 <img
-                  src={`/src/assets/${icon}`}
-                  alt={icon.replace("-icon.png", "")}
+                  src={icon}
+                  alt={icon.split("/").pop().replace("-icon.png", "")}
                   className="w-16 sm:w-20 md:w-24 lg:w-32 xl:w-36"
                 />
               </div>
@@ -284,15 +295,15 @@ export default function Main() {
       <article className="w-full bg-gradient-to-r from-[#8B6E01] to-[#251D00] py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center gap-8">
-          <div className="w-full md:w-1/2 aspect-[4/3] md:aspect-auto">
-        <div 
-          className="w-full h-full bg-cover bg-center"
-          style={{ 
-            backgroundImage: "url(src/assets/expert.png)",
-            paddingBottom: "90%", // Maintains aspect ratio
-          }}
-        />
-      </div>
+            <div className="w-full md:w-1/2 aspect-[4/3] md:aspect-auto">
+              <div
+                className="w-full h-full bg-cover bg-center"
+                style={{
+                  backgroundImage: "url(src/assets/expert.png)",
+                  paddingBottom: "90%", // Maintains aspect ratio
+                }}
+              />
+            </div>
             <div className="w-full md:w-1/2 space-y-6 text-white">
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">
                 Atendimento psicológico de{" "}
@@ -302,11 +313,20 @@ export default function Main() {
                 <p className="text-base md:text-lg">
                   Meu objetivo na primeira parte do atendimento, é identificar e
                   te auxiliar nas questões que estão lhe trazendo{" "}
-                  <span className="text-[#bfac6d]">desconforto</span>, atrapalhando seu <span className="text-[#bfac6d]">bem-estar</span>, suas <span className="text-[#bfac6d]">atividades diárias</span> e <span className="text-[#bfac6d]">relações</span>.
-
-Através da <span className="text-[#bfac6d]">Terapia Cognitivo-Comportamental</span>, você aprenderá a modificar padrões de pensamento que limitam seu potencial. 
-
-Juntos, vamos construir um plano de ação personalizado para que você alcance seus <span className="text-[#bfac6d]">metas</span> e viva uma <span className="text-[#bfac6d]">vida mais feliz</span> e realizada.
+                  <span className="text-[#bfac6d]">desconforto</span>,
+                  atrapalhando seu{" "}
+                  <span className="text-[#bfac6d]">bem-estar</span>, suas{" "}
+                  <span className="text-[#bfac6d]">atividades diárias</span> e{" "}
+                  <span className="text-[#bfac6d]">relações</span>. Através da{" "}
+                  <span className="text-[#bfac6d]">
+                    Terapia Cognitivo-Comportamental
+                  </span>
+                  , você aprenderá a modificar padrões de pensamento que limitam
+                  seu potencial. Juntos, vamos construir um plano de ação
+                  personalizado para que você alcance seus{" "}
+                  <span className="text-[#bfac6d]">metas</span> e viva uma{" "}
+                  <span className="text-[#bfac6d]">vida mais feliz</span> e
+                  realizada.
                 </p>
                 {/* Add other paragraphs */}
               </div>
@@ -331,8 +351,10 @@ Juntos, vamos construir um plano de ação personalizado para que você alcance 
                 >
                   <p className="text-black mb-4">
                     A Norma fez um trabalho incrível comigo, conduziu a terapia
-                    de forma leve, buscando sempre entender as nossas
-                    angústias e aflições. Ela me ajudou num dos momentos mais dificéis e com certeza vou aplicar os conselhos dela nesta minha no empreitada. 
+                    de forma leve, buscando sempre entender as nossas angústias
+                    e aflições. Ela me ajudou num dos momentos mais dificéis e
+                    com certeza vou aplicar os conselhos dela nesta minha no
+                    empreitada.
                   </p>
                   <p className="font-bold text-black">{testimonial.name}</p>
                 </div>
@@ -344,59 +366,59 @@ Juntos, vamos construir um plano de ação personalizado para que você alcance 
 
       {/* Última Atualização recente */}
       <main className="w-full min-h-screen bg-cover bg-center bg-no-repeat py-16 md:py-24 px-4 md:px-8 lg:px-12 relative">
-  <div 
-    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-    style={{ backgroundImage: "url(/src/assets/bio-expert.png)" }}
-  />
-  <div className="container mx-auto flex flex-col md:flex-row items-center justify-between relative z-10 gap-8">
-    <div className="relative w-full md:w-1/2 flex justify-center items-center py-8 md:py-12">
-      <div
-        className="w-full bg-cover bg-center bg-no-repeat rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105"
-        style={{ 
-          backgroundImage: "url(/src/assets/specialist-2.png)",
-          minHeight: "400px",
-          height: "calc(100vh - 30vh)",
-          maxHeight: "750px",
-          backgroundPosition: "center 20%",
-          backgroundSize: "contain",
-          backgroundRepeat: "no-repeat"
-        }}
-      />
-    </div>
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${bioExpert})` }}
+        />
+        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between relative z-10 gap-8">
+          <div className="relative w-full md:w-1/2 flex justify-center items-center py-8 md:py-12">
+            <div
+              className="w-full bg-cover bg-center bg-no-repeat rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105"
+              style={{
+                backgroundImage: `url(${specialist2})`,
+                minHeight: "400px",
+                height: "calc(100vh - 30vh)",
+                maxHeight: "750px",
+                backgroundPosition: "center 20%",
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
+              }}
+            />
+          </div>
 
-    <div className="w-full md:w-1/2 flex flex-col gap-4 bg-white bg-opacity-80 p-6 md:p-8 rounded-lg shadow-lg">
-      <h2 className="text-2xl md:text-3xl font-bold text-center md:text-left">
-        Norma Alvarez
-      </h2>
+          <div className="w-full md:w-1/2 flex flex-col gap-4 bg-white bg-opacity-80 p-6 md:p-8 rounded-lg shadow-lg">
+            <h2 className="text-2xl md:text-3xl font-bold text-center md:text-left">
+              Norma Alvarez
+            </h2>
 
-      <p className="text-sm md:text-base font-light">
-        <span className="font-bold">Abordagem:</span> Terapia de
-        ansiedade, TOC, Síndrome do pânico, Fobia social, Transtornos
-        depressivos, procrastinação, questões sexuais, demanda de
-        relacionamento. Modificações e desenvolvimento de hábitos
-        saudáveis.
-      </p>
+            <p className="text-sm md:text-base font-light">
+              <span className="font-bold">Abordagem:</span> Terapia de
+              ansiedade, TOC, Síndrome do pânico, Fobia social, Transtornos
+              depressivos, procrastinação, questões sexuais, demanda de
+              relacionamento. Modificações e desenvolvimento de hábitos
+              saudáveis.
+            </p>
 
-      <p className="text-sm md:text-base font-bold">
-        A partir de 18 anos
-      </p>
+            <p className="text-sm md:text-base font-bold">
+              A partir de 18 anos
+            </p>
 
-      <p className="text-sm md:text-base font-light">
-        <span className="font-bold">Experiência profissional:</span> A
-        psicóloga conta com uma bagagem e experiência de mais de 2.500
-        consultas realizadas e um legado a ser mantido.
-      </p>
+            <p className="text-sm md:text-base font-light">
+              <span className="font-bold">Experiência profissional:</span> A
+              psicóloga conta com uma bagagem e experiência de mais de 2.500
+              consultas realizadas e um legado a ser mantido.
+            </p>
 
-      <p className="text-sm md:text-base font-bold">Neurociência</p>
+            <p className="text-sm md:text-base font-bold">Neurociência</p>
 
-      <p className="text-sm md:text-base font-light">
-        Atualmente dentro da psicologia, o conhecimento sobre neurociência
-        dos principais problemas e transtornos torna o atendimento muito
-        mais assertivo.
-      </p>
-    </div>
-  </div>
-</main>
+            <p className="text-sm md:text-base font-light">
+              Atualmente dentro da psicologia, o conhecimento sobre neurociência
+              dos principais problemas e transtornos torna o atendimento muito
+              mais assertivo.
+            </p>
+          </div>
+        </div>
+      </main>
 
       {/* Última Atualização recente */}
       <footer className="w-full bg-gradient-to-r from-[#8B6E01] to-[#684E33] bg-opacity-90 py-6 px-4 sm:px-6 md:px-8">
