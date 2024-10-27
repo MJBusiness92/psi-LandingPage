@@ -20,6 +20,7 @@ import atendimentoIcon from "@assets/Atendimento-icon.png";
 import sigiloIcon from "@assets/Sigilo-icon.png";
 import ambienteSeguroIcon from "@assets/Ambiente-Seguro-Icon.png";
 import iconCerto from "@assets/icon-certo.png";
+import expertImage from '@/assets/expert.png';
 
 const icons = [timeIcon, atendimentoIcon, sigiloIcon, ambienteSeguroIcon];
 
@@ -301,7 +302,7 @@ export default function Main() {
               <div
                 className="w-full h-full bg-cover bg-center"
                 style={{
-                  backgroundImage: "url(src/assets/expert.png)",
+                  backgroundImage: `url(${expertImage})`,
                   paddingBottom: "90%", // Maintains aspect ratio
                 }}
               />
