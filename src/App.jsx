@@ -18,7 +18,7 @@ import specialist2 from "@assets/specialist-2.png";
 import timeIcon from "@assets/Time-icon.png";
 import atendimentoIcon from "@assets/Atendimento-icon.png";
 import sigiloIcon from "@assets/Sigilo-icon.png";
-import ambienteSeguroIcon from "@assets/Ambiente-Seguro-icon.png";
+import ambienteSeguroIcon from "@assets/Ambiente-Seguro-Icon.png";
 
 const icons = [timeIcon, atendimentoIcon, sigiloIcon, ambienteSeguroIcon];
 
