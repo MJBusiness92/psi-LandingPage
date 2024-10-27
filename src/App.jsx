@@ -19,6 +19,7 @@ import timeIcon from "@assets/Time-icon.png";
 import atendimentoIcon from "@assets/Atendimento-icon.png";
 import sigiloIcon from "@assets/Sigilo-icon.png";
 import ambienteSeguroIcon from "@assets/Ambiente-Seguro-Icon.png";
+import iconCerto from "@assets/icon-certo.png";
 
 const icons = [timeIcon, atendimentoIcon, sigiloIcon, ambienteSeguroIcon];
 
@@ -137,7 +138,7 @@ export default function Main() {
             {/* Item 1 */}
             <div className="flex items-start gap-2 sm:gap-3">
               <img
-                src="/src/assets/icon-certo.png"
+                src={iconCerto}
                 alt="Ícone certo"
                 className="w-5 sm:w-6 mt-1 flex-shrink-0"
               />
