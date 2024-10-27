@@ -153,7 +153,7 @@ export default function Main() {
             {/* Item 2 */}
             <div className="flex items-start gap-2 sm:gap-3">
               <img
-                src="/src/assets/icon-certo.png"
+                src={iconCerto}
                 alt="Ícone certo"
                 className="w-5 sm:w-6 mt-1 flex-shrink-0"
               />
@@ -168,7 +168,7 @@ export default function Main() {
             {/* Item 3 */}
             <div className="flex items-start gap-2 sm:gap-3">
               <img
-                src="/src/assets/icon-certo.png"
+                src={iconCerto}
                 alt="Ícone certo"
                 className="w-5 sm:w-6 mt-1 flex-shrink-0"
               />
@@ -183,7 +183,7 @@ export default function Main() {
             {/* Item 4 */}
             <div className="flex items-start gap-2 sm:gap-3">
               <img
-                src="/src/assets/icon-certo.png"
+                src={iconCerto}
                 alt="Ícone certo"
                 className="w-5 sm:w-6 mt-1 flex-shrink-0"
               />
@@ -198,7 +198,7 @@ export default function Main() {
             {/* Item 5 */}
             <div className="flex items-start gap-2 sm:gap-3">
               <img
-                src="/src/assets/icon-certo.png"
+                src={iconCerto}
                 alt="Ícone certo"
                 className="w-5 sm:w-6 mt-1 flex-shrink-0"
               />
@@ -213,7 +213,7 @@ export default function Main() {
             {/* Item 6 */}
             <div className="flex items-start gap-2 sm:gap-3">
               <img
-                src="/src/assets/icon-certo.png"
+                src={iconCerto}
                 alt="Ícone certo"
                 className="w-5 sm:w-6 mt-1 flex-shrink-0"
               />
@@ -229,7 +229,7 @@ export default function Main() {
             {/* Item 7 */}
             <div className="flex items-start gap-2 sm:gap-3">
               <img
-                src="/src/assets/icon-certo.png"
+                src={iconCerto}
                 alt="Ícone certo"
                 className="w-5 sm:w-6 mt-1 flex-shrink-0"
               />
@@ -244,7 +244,7 @@ export default function Main() {
             {/* Item 8 */}
             <div className="flex items-start gap-2 sm:gap-3">
               <img
-                src="/src/assets/icon-certo.png"
+                src={iconCerto}
                 alt="Ícone certo"
                 className="w-5 sm:w-6 mt-1 flex-shrink-0"
               />
