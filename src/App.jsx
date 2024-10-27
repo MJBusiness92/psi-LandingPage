@@ -7,18 +7,18 @@ import "./App.css";
 import "./index.css";
 
 // Importe todas as imagens que você usa como backgroundImage
-import bg1 from "./assets/bg-1.png";
-import bg2 from "./assets/bg-2.png";
-import specialist3 from "./assets/specialist-3.png";
-import bioExpert from "./assets/bio-expert.png";
-import specialist2 from "./assets/specialist-2.png";
+import bg1 from "@assets/bg-1.png";
+import bg2 from "@assets/bg-2.png";
+import specialist3 from "@assets/specialist-3.png";
+import bioExpert from "@assets/bio-expert.png";
+import specialist2 from "@assets/specialist-2.png";
 // import facebookIcon from "./assets/facebook.png";
 // import instagramIcon from "./assets/instagram.png";
 // import tiktokIcon from "./assets/Tiktok.png";
-import timeIcon from "./assets/Time-icon.png";
-import atendimentoIcon from "./assets/Atendimento-icon.png";
-import sigiloIcon from "./assets/Sigilo-icon.png";
-import ambienteSeguroIcon from "./assets/Ambiente-Seguro-icon.png";
+import timeIcon from "@assets/Time-icon.png";
+import atendimentoIcon from "@assets/Atendimento-icon.png";
+import sigiloIcon from "@assets/Sigilo-icon.png";
+import ambienteSeguroIcon from "@assets/Ambiente-Seguro-icon.png";
 
 const icons = [timeIcon, atendimentoIcon, sigiloIcon, ambienteSeguroIcon];
 
