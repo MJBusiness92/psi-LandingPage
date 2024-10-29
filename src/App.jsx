@@ -2,7 +2,7 @@ import "./App.css";
 import "./index.css";
 
 import React, { useEffect, useRef } from 'react';
-// import anime from 'animejs';
+import anime from 'animejs';
 
 // Importe todas as imagens que você usa como backgroundImage
 import bg1 from "@assets/bg-1.png";
@@ -25,6 +25,7 @@ const icons = [timeIcon, atendimentoIcon, sigiloIcon, ambienteSeguroIcon];
 
 export default function Main() {
   const elementsRef = useRef([]);
+  const imagesRef = useRef([]);
 
   useEffect(() => {
     const results = Splitting();
@@ -41,14 +42,60 @@ export default function Main() {
 
     elementsRef.current.forEach((el) => observer.observe(el));
 
-    return () => observer.disconnect();
-  }, []);
+  //   return () => observer.disconnect();
+  // }, []);
 
-  const addToRefs = (el) => {
-    if (el && !elementsRef.current.includes(el)) {
-      elementsRef.current.push(el);
-    }
+  // const addToRefs = (el) => {
+  //   if (el && !elementsRef.current.includes(el)) {
+  //     elementsRef.current.push(el);
+  //   }
+  // };
+
+  // Anime.js animations
+  const fadeInScale = (targets, delay = 0) => {
+    anime({
+      targets: targets,
+      opacity: [0, 1],
+      scale: [0.5, 1],
+      duration: 1000,
+      delay: anime.stagger(100, {start: delay}),
+      easing: 'easeOutElastic(1, .5)'
+    });
   };
+
+  const slideIn = (targets, direction = 'left', delay = 0) => {
+    const x = direction === 'left' ? ['-100%', '0%'] : ['100%', '0%'];
+    anime({
+      targets: targets,
+      translateX: x,
+      opacity: [0, 1],
+      duration: 1000,
+      delay: anime.stagger(100, {start: delay}),
+      easing: 'easeOutQuad'
+    });
+  };
+
+  // Apply animations to images
+  fadeInScale(imagesRef.current, 300);
+
+  // Clean up function
+  return () => {
+    observer.disconnect();
+    anime.remove(imagesRef.current);
+  };
+}, []);
+
+const addToRefs = (el) => {
+  if (el && !elementsRef.current.includes(el)) {
+    elementsRef.current.push(el);
+  }
+};
+
+const addToImageRefs = (el) => {
+  if (el && !imagesRef.current.includes(el)) {
+    imagesRef.current.push(el);
+  }
+};
 
   return (
     <div className="relative w-full min-h-screen overflow-x-hidden">
@@ -107,8 +154,9 @@ export default function Main() {
               </div>
             </div>
             <div className="w-full md:w-1/2 h-full flex items-end">
-              <div
-                className="w-full h-[400px] md:h-[600px] lg:h-[700px] bg-contain bg-bottom bg-no-repeat"
+              <div 
+              ref={addToImageRefs}
+                className="w-full h-[400px] md:h-[600px] lg:h-[700px] bg-contain bg-bottom bg-no-repeat animate-slide-left"
                 style={{
                   position: "relative",
                   backgroundImage: `url(${specialist3})`,
@@ -142,6 +190,7 @@ export default function Main() {
             {icons.map((icon, index) => (
               <div key={index} className="flex justify-center">
                 <img
+                ref={addToImageRefs}
                   src={icon}
                   alt={icon.split("/").pop().replace("-icon.png", "")}
                   className="w-16 sm:w-20 md:w-24 lg:w-32 xl:w-36"
@@ -325,7 +374,8 @@ export default function Main() {
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="w-full md:w-1/2 aspect-[4/3] md:aspect-auto">
               <div
-                className="w-full h-full bg-cover bg-center"
+              ref={addToImageRefs}
+                className="w-full h-full bg-cover bg-center animate-slide-left"
                 style={{
                   backgroundImage: `url(${expertImage})`,
                   paddingBottom: "90%", // Maintains aspect ratio
@@ -401,6 +451,7 @@ export default function Main() {
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between relative z-10 gap-8">
           <div className="relative w-full md:w-1/2 flex justify-center items-center py-8 md:py-12">
             <div
+            ref={addToImageRefs}
               className="w-full bg-cover bg-center bg-no-repeat rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105"
               style={{
                 backgroundImage: `url(${specialist2})`,
@@ -474,5 +525,5 @@ export default function Main() {
         </div>
       </footer>
     </div>
-  );
+  )
 }
