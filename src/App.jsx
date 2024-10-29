@@ -6,6 +6,7 @@ import anime from 'animejs';
 
 // Importe todas as imagens que você usa como backgroundImage
 import bg1 from "@assets/bg-1.png";
+import nutriLogo from "@assets/nutri-logo.png"
 import bg2 from "@assets/bg-2.png";
 import specialist3 from "@assets/specialist-3.png";
 import bioExpert from "@assets/bio-expert.png";
@@ -116,7 +117,7 @@ const addToImageRefs = (el) => {
                 <div
                   className="w-28 h-28 bg-contain bg-no-repeat mt-2"
                   style={{
-                    backgroundImage: "url('/src/assets/nutri-logo.png')",
+                    backgroundImage: `url(${nutriLogo})`,
                   }}
                 />
                 <div className="mt-6 space-y-4">
