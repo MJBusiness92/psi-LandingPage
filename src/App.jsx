@@ -107,7 +107,7 @@ const addToImageRefs = (el) => {
         style={{
           backgroundImage: `url(${bg1})`,
           zIndex: -1,
-          height: '100vh',
+          height: '500vh',
           minHeight: '100%',
           backgroundAttachment: 'fixed'
         }}
