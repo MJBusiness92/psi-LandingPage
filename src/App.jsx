@@ -57,7 +57,7 @@ export default function Main() {
     anime({
       targets: targets,
       opacity: [0, 1],
-      scale: [0.5, 1],
+      scale: [1.5, 1],
       duration: 1000,
       delay: anime.stagger(100, {start: delay}),
       easing: 'easeOutElastic(1, .5)'
@@ -67,12 +67,13 @@ export default function Main() {
   const slideIn = (targets, direction = 'left', delay = 0) => {
     const x = direction === 'left' ? ['-100%', '0%'] : ['100%', '0%'];
     anime({
-      targets: targets,
-      translateX: x,
+      targets: imagesRef.current,
+      translateX: 250, //x, [-100, 0]
+      rotateZ: 360, //Adicionado por último
       opacity: [0, 1],
-      duration: 1000,
-      delay: anime.stagger(100, {start: delay}),
-      easing: 'easeOutQuad'
+      duration: 2500,
+      delay: anime.stagger(100), // {start: delay}),
+      easing: 'easeOutQuad', // Ou podemos utilizar 'easeOutQuad'
     });
   };
 
@@ -112,8 +113,9 @@ const addToImageRefs = (el) => {
       <header className="w-full min-h-screen relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center">
           <div className="flex flex-col md:flex-row items-center justify-between w-full gap-8">
-            <div className="w-full md:w-1/2 max-w-2xl">
-              <div className="bg-[#644c34] rounded-2xl p-6 md:p-8 w-full">
+            <div className="w-full md:w-1/2 max-w-2xl relative z-20">
+              {/* <div className="bg-[#644c34] rounded-2xl p-6 md:p-8 w-full"> EM ULTIMO CADO EXCLUIR A DIV DE BAIXO*/} 
+              <div className="bg-[#644c34] rounded-2xl p-6 md:p-8 w-full shadow-xl backdrop-blur-sm">
                 <div
                   className="w-28 h-28 bg-contain bg-no-repeat mt-2"
                   style={{
@@ -154,14 +156,14 @@ const addToImageRefs = (el) => {
                 </div>
               </div>
             </div>
-            <div className="w-full md:w-1/2 h-full flex items-end">
-              <div 
+            <div className="w-full md:w-1/2 h-full flex items-end relative z-40">
+              <div
               ref={addToImageRefs}
-                className="w-full h-[400px] md:h-[600px] lg:h-[700px] bg-contain bg-bottom bg-no-repeat animate-slide-left"
+                className="w-full transform transition-transform duration-300 h-[400px] md:h-[600px] lg:h-[700px] bg-contain bg-bottom bg-no-repeat md:translate-y-20 lg:translate-y-24"
                 style={{
-                  position: "relative",
+                  // position: "relative",
                   backgroundImage: `url(${specialist3})`,
-                  marginBottom: -200,
+                  // marginBottom: -200,
                 }}
               />
             </div>
@@ -170,19 +172,29 @@ const addToImageRefs = (el) => {
       </header>
 
       {/* Services Section */}
-      <section className="w-screen relative">
+      <section className="w-screen relative -mt-32 md:-mt-40 lg:-mt-48">
         <div
-          className="absolute left-0 right-0 w-full min-h-full bg-cover bg-center"
+          className="absolute inset-0 w-full h-full bg-cover bg-center transform"
           style={{
             backgroundImage: `url(${bg2})`,
-            marginTop: "-200px",
+            marginTop: "-190px",
             width: "100%",
             height: "calc(100% + 210px)", // Added to increase height
           }}
         />
-        <div className="relative px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24">
+        {/* <div className="relative px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24"> */}
+        <div className="relative px-4 sm:px-6 lg:px-8 
+    pt-[120px] sm:pt-[150px] md:pt-[180px] lg:pt-[200px] xl:pt-[220px] 
+    pb-8 sm:pb-12 md:pb-16 lg:pb-20 xl:pb-24
+    z-20">
           {/* Título Principal */}
-          <h2 className="text-2 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-white mb-8 sm:mb-12 md:mb-16" data-splitting ref={addToRefs}>
+          {/* <h2 className="text-2 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-white mb-8 sm:mb-12 md:mb-16" data-splitting ref={addToRefs}> */}
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
+        font-bold text-center text-white 
+        mb-8 sm:mb-12 md:mb-16
+        relative" 
+        data-splitting 
+        ref={addToRefs}>
             Agende <span className="text-[#d4bea9]">sua sessão</span>
           </h2>
 
@@ -452,7 +464,6 @@ const addToImageRefs = (el) => {
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between relative z-10 gap-8">
           <div className="relative w-full md:w-1/2 flex justify-center items-center py-8 md:py-12">
             <div
-            ref={addToImageRefs}
               className="w-full bg-cover bg-center bg-no-repeat rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105"
               style={{
                 backgroundImage: `url(${specialist2})`,
