@@ -107,7 +107,7 @@ const addToImageRefs = (el) => {
         style={{
           backgroundImage: `url(${bg1})`,
           zIndex: -1,
-          height: '500vh',
+          height: '100vh',
           minHeight: '100%',
           backgroundAttachment: 'fixed'
         }}
@@ -180,13 +180,9 @@ const addToImageRefs = (el) => {
           className="absolute inset-0 w-full h-full bg-cover bg-center transform"
           style={{
             backgroundImage: `url(${bg2})`,
-            // marginTop: "-190px",
-            // width: "100%",
-            // height: "calc(100% + 210px)", // Added to increase height
-            minHeight: '100vh',
-      backgroundAttachment: 'fixed',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
+            marginTop: "-190px",
+            width: "100%",
+            height: "calc(100% + 210px)", // Added to increase height
           }}
         />
         {/* <div className="relative px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24"> */}
