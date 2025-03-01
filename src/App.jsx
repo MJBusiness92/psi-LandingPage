@@ -189,24 +189,25 @@ const addToImageRefs = (el) => {
     z-20">
           {/* Título Principal */}
           {/* <h2 className="text-2 sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-white mb-8 sm:mb-12 md:mb-16" data-splitting ref={addToRefs}> */}
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 
-        font-bold text-center text-white 
-        mb-8 sm:mb-12 md:mb-16
-        relative" 
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-white mb-8 sm:mb-12 md:mb-16 relative" 
         data-splitting 
         ref={addToRefs}>
             Agende <span className="text-[#d4bea9]">sua sessão</span>
           </h2>
 
           {/* Icons Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 max-w-[280px] sm:max-w-2xl md:max-w-4xl lg:max-w-6xl mx-auto mb-12 sm:mb-16 md:mb-20">
+          <div className="grid grid-cols-2 lg:grid-cols-4  
+    gap-12 md:gap-4 
+    max-w-[320px] md:max-w-4xl lg:max-w-6xl 
+    mx-auto mb-12 md:mb-20">
             {icons.map((icon, index) => (
-              <div key={index} className="flex justify-center">
+              <div key={index} className="flex justify-center items-center">
                 <img
                 ref={addToImageRefs}
                   src={icon}
                   alt={icon.split("/").pop().replace("-icon.png", "")}
-                  className="w-16 sm:w-20 md:w-24 lg:w-32 xl:w-36"
+                  className="w-32 md:w-24 lg:w-32 xl:w-36 
+          transform transition-transform duration-300 hover:scale-105"
                 />
               </div>
             ))}
